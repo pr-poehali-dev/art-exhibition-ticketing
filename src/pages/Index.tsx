@@ -13,50 +13,58 @@ const Index = () => {
   const exhibitions = [
     {
       id: 1,
-      title: 'Современное искусство 2025',
-      description: 'Выставка работ современных художников России и зарубежья',
+      title: 'Гималайская серия',
+      description: 'Мистические горные пейзажи и духовные искания художника',
       date: '15 января - 28 февраля 2025',
-      image: 'https://cdn.poehali.dev/projects/fe796d82-bdee-4481-9037-6f8265eaaee0/files/71ec7942-558c-4398-a8e7-1d7e1790ee7e.jpg',
-      price: 'от 500₽',
-      status: 'Открыта'
+      image: 'https://cdn.poehali.dev/projects/fe796d82-bdee-4481-9037-6f8265eaaee0/files/8cbd448b-d74b-4753-8778-5ad08e6468f6.jpg',
+      price: 'от 300₽',
+      status: 'Открыта',
+      audience: 'Для детей и взрослых'
     },
     {
       id: 2,
-      title: 'Абстракция и форма',
-      description: 'Исследование абстрактных форм в современном контексте',
+      title: 'Русская история в живописи',
+      description: 'Былинные сюжеты и древнерусская культура глазами Рериха',
       date: '1 марта - 15 апреля 2025',
-      image: 'https://cdn.poehali.dev/projects/fe796d82-bdee-4481-9037-6f8265eaaee0/files/8c0a2cf8-3ec9-420d-bfbe-69b7cc397903.jpg',
-      price: 'от 600₽',
-      status: 'Скоро'
+      image: 'https://cdn.poehali.dev/projects/fe796d82-bdee-4481-9037-6f8265eaaee0/files/034fdb9a-d09a-48a0-ba2d-9080071dc63d.jpg',
+      price: 'от 300₽',
+      status: 'Скоро',
+      audience: 'Для детей и взрослых'
     },
     {
       id: 3,
-      title: 'Цвет и эмоция',
-      description: 'Яркие работы молодых художников о современности',
+      title: 'Культура и просвещение',
+      description: 'Воспитательная выставка о значении культуры в жизни народов',
       date: '20 апреля - 30 мая 2025',
-      image: 'https://cdn.poehali.dev/projects/fe796d82-bdee-4481-9037-6f8265eaaee0/files/72bee045-3f19-4066-b865-b57344e07b6f.jpg',
-      price: 'от 450₽',
-      status: 'Анонс'
+      image: 'https://cdn.poehali.dev/projects/fe796d82-bdee-4481-9037-6f8265eaaee0/files/038a9b6e-d35e-4dd2-9973-13aea15f9646.jpg',
+      price: 'от 250₽',
+      status: 'Анонс',
+      audience: 'Для детей и взрослых'
     }
   ];
 
   const events = [
-    { date: '15 января', title: 'Открытие выставки "Современное искусство"', time: '18:00' },
-    { date: '20 января', title: 'Мастер-класс по акварели', time: '14:00' },
-    { date: '27 января', title: 'Лекция "История абстракционизма"', time: '16:00' },
-    { date: '3 февраля', title: 'Экскурсия с куратором', time: '12:00' }
+    { date: '15 января', title: 'Открытие выставки "Гималайская серия"', time: '11:00', audience: 'Для всей семьи' },
+    { date: '20 января', title: 'Лекция "Жизнь и творчество Н.К. Рериха"', time: '14:00', audience: 'Для взрослых' },
+    { date: '25 января', title: 'Детская экскурсия "Путешествие в мир искусства"', time: '11:00', audience: 'Для детей 7-14 лет' },
+    { date: '3 февраля', title: 'Мастер-класс по копированию картин Рериха', time: '15:00', audience: 'Для детей и взрослых' }
   ];
 
   const news = [
     {
-      title: 'Новая выставка открывается 15 января',
-      content: 'Приглашаем на торжественное открытие выставки "Современное искусство 2025"',
+      title: 'Передвижная выставка стартует в январе',
+      content: 'Воспитательная художественная выставка работ Н.К. Рериха начинает путешествие по городам России',
       date: '10 января 2025'
     },
     {
-      title: 'Объявлен конкурс молодых художников',
-      content: 'До 1 марта принимаются заявки на участие в конкурсе',
+      title: 'Специальные программы для школьников',
+      content: 'Разработаны образовательные экскурсии с элементами интерактива для детей разных возрастов',
       date: '5 января 2025'
+    },
+    {
+      title: 'Пакт Рериха: история и современность',
+      content: 'Новая лекция о вкладе художника в защиту культурных ценностей человечества',
+      date: '28 декабря 2024'
     }
   ];
 
@@ -75,9 +83,12 @@ const Index = () => {
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
                 <Icon name="Palette" className="text-white" size={24} />
               </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                ArtSpace
-              </h1>
+              <div className="flex flex-col">
+                <h1 className="text-lg font-bold text-foreground leading-tight">
+                  ВЕЛИКИЕ ХУДОЖНИКИ РОССИИ
+                </h1>
+                <p className="text-sm text-muted-foreground">НИКОЛАЙ КОНСТАНТИНОВИЧ РЕРИХ</p>
+              </div>
             </div>
             <nav className="hidden md:flex gap-6">
               <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors font-medium">
@@ -115,14 +126,14 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center fade-in">
             <Badge className="mb-6 px-4 py-2 text-sm bg-primary/20 text-primary hover:bg-primary/30">
-              Художественная галерея
+              Передвижные выставки
             </Badge>
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Погрузитесь в мир
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"> современного искусства</span>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight uppercase">
+              ВЕЛИКИЕ ХУДОЖНИКИ РОССИИ<br/>
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">НИКОЛАЙ КОНСТАНТИНОВИЧ РЕРИХ</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Воспитательные художественные выставки с интерактивными программами. Покупайте билеты онлайн и становитесь частью культурного сообщества
+              Воспитательные художественные передвижные выставки для детей и взрослых. Познакомьтесь с творчеством великого сына России
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" className="text-lg px-8 hover-scale">
@@ -141,8 +152,8 @@ const Index = () => {
       <section id="exhibitions" className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Текущие выставки</h2>
-            <p className="text-xl text-muted-foreground">Откройте для себя новые грани искусства</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Передвижные выставки</h2>
+            <p className="text-xl text-muted-foreground">Творчество Николая Рериха для детей и взрослых</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {exhibitions.map((exhibition) => (
@@ -165,6 +176,10 @@ const Index = () => {
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                     <Icon name="Calendar" size={16} />
                     {exhibition.date}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <Icon name="Users" size={16} />
+                    {exhibition.audience}
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Icon name="Ticket" size={16} />
@@ -220,9 +235,13 @@ const Index = () => {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold mb-1">{event.title}</h4>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
                         <Icon name="Clock" size={14} />
                         {event.time}
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Icon name="Users" size={12} />
+                        {event.audience}
                       </div>
                     </div>
                   </div>
@@ -242,11 +261,11 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <Card className="hover-scale">
               <CardHeader>
-                <CardTitle className="text-2xl">Базовый</CardTitle>
-                <CardDescription>Посещение одной выставки</CardDescription>
+                <CardTitle className="text-2xl">Детский</CardTitle>
+                <CardDescription>Для школьников и семей</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-4xl font-bold mb-4 text-primary">500₽</div>
+                <div className="text-4xl font-bold mb-4 text-primary">200₽</div>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
@@ -254,7 +273,11 @@ const Index = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
-                    <span>Буклет с описанием</span>
+                    <span>Интерактивная экскурсия</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Icon name="Check" size={18} className="text-accent" />
+                    <span>Материалы о Рерихе</span>
                   </li>
                 </ul>
               </CardContent>
@@ -268,23 +291,27 @@ const Index = () => {
                 Популярный
               </Badge>
               <CardHeader>
-                <CardTitle className="text-2xl">Стандарт</CardTitle>
-                <CardDescription>С экскурсией и мастер-классом</CardDescription>
+                <CardTitle className="text-2xl">Взрослый</CardTitle>
+                <CardDescription>С экскурсией и лекцией</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-4xl font-bold mb-4 text-primary">900₽</div>
+                <div className="text-4xl font-bold mb-4 text-primary">300₽</div>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
-                    <span>Все из базового</span>
+                    <span>Вход на выставку</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
-                    <span>Экскурсия с гидом</span>
+                    <span>Экскурсия с искусствоведом</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
-                    <span>Мастер-класс</span>
+                    <span>Лекция о Рерихе</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Icon name="Check" size={18} className="text-accent" />
+                    <span>Буклет и материалы</span>
                   </li>
                 </ul>
               </CardContent>
@@ -295,28 +322,29 @@ const Index = () => {
 
             <Card className="hover-scale">
               <CardHeader>
-                <CardTitle className="text-2xl">Премиум</CardTitle>
-                <CardDescription>Абонемент на месяц</CardDescription>
+                <CardTitle className="text-2xl">Групповой</CardTitle>
+                <CardDescription>Для школьных классов</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-4xl font-bold mb-4 text-primary">2500₽</div>
+                <div className="text-4xl font-bold mb-4 text-primary">150₽</div>
+                <p className="text-sm text-muted-foreground mb-4">на человека (от 15 чел.)</p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
-                    <span>Все из стандарта</span>
+                    <span>Вход на выставку</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
-                    <span>Безлимитное посещение</span>
+                    <span>Воспитательная программа</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Icon name="Check" size={18} className="text-accent" />
-                    <span>Скидка 20% на события</span>
+                    <span>Материалы для учителя</span>
                   </li>
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className="w-full" variant="outline">Купить</Button>
+                <Button className="w-full" variant="outline">Заказать</Button>
               </CardFooter>
             </Card>
           </div>
@@ -346,33 +374,33 @@ const Index = () => {
       <section id="about" className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">О нас</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">О проекте</h2>
             <p className="text-xl text-muted-foreground mb-8">
-              ArtSpace — это современное выставочное пространство, где встречаются искусство и технологии. 
-              Мы создаём уникальные воспитательные программы, которые помогают людям всех возрастов 
-              понять и полюбить современное искусство.
+              Передвижные художественные выставки, посвящённые творчеству великого русского художника, философа и мыслителя 
+              Николая Константиновича Рериха (1874-1947). Наша миссия — воспитание через искусство, приобщение детей и взрослых 
+              к высокой культуре и духовным ценностям России.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
                   <Icon name="Users" className="text-white" size={32} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">50,000+</h3>
-                <p className="text-muted-foreground">Посетителей в год</p>
+                <h3 className="text-2xl font-bold mb-2">25,000+</h3>
+                <p className="text-muted-foreground">Детей и взрослых посетили выставки</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Award" className="text-white" size={32} />
+                  <Icon name="MapPin" className="text-white" size={32} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">120+</h3>
-                <p className="text-muted-foreground">Выставок проведено</p>
+                <h3 className="text-2xl font-bold mb-2">50+</h3>
+                <p className="text-muted-foreground">Городов России</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Star" className="text-white" size={32} />
+                  <Icon name="Palette" className="text-white" size={32} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">4.9</h3>
-                <p className="text-muted-foreground">Средний рейтинг</p>
+                <h3 className="text-2xl font-bold mb-2">7000+</h3>
+                <p className="text-muted-foreground">Картин в коллекции</p>
               </div>
             </div>
           </div>
