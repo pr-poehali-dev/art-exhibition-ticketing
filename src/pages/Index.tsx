@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar } from '@/components/ui/calendar';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [selectedMonth, setSelectedMonth] = useState(0);
   const [activeSection, setActiveSection] = useState('home');
+  
+  const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь'];
 
   const exhibitions = [
     {
@@ -189,12 +190,24 @@ const Index = () => {
           </div>
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <Card className="p-6">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                className="rounded-md border mx-auto"
-              />
+              <h3 className="text-2xl font-bold mb-6">Календарь</h3>
+              <div className="flex gap-2 mb-4 flex-wrap">
+                {months.map((month, index) => (
+                  <Button
+                    key={index}
+                    variant={selectedMonth === index ? 'default' : 'outline'}
+                    onClick={() => setSelectedMonth(index)}
+                    size="sm"
+                  >
+                    {month}
+                  </Button>
+                ))}
+              </div>
+              <div className="bg-muted/50 rounded-lg p-8 text-center">
+                <Icon name="Calendar" size={64} className="mx-auto mb-4 text-primary" />
+                <p className="text-lg font-semibold">{months[selectedMonth]} 2025</p>
+                <p className="text-muted-foreground mt-2">Выберите месяц для просмотра событий</p>
+              </div>
             </Card>
             <Card className="p-6">
               <h3 className="text-2xl font-bold mb-6">Ближайшие события</h3>
